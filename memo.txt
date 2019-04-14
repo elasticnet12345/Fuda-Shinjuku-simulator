@@ -1,0 +1,8 @@
+https://transit.yahoo.co.jp/search/result?flatlon=&fromgid=&from=%E5%B8%83%E7%94%B0&tlatlon=&togid=&to=%E6%96%B0%E5%AE%BF&viacode=&via=%E8%AA%BF%E5%B8%83&viacode=&via=&viacode=&via=&y=2019&m=04&d=14&hh=17&m2=7&m1=0&type=1&ticket=ic&expkind=1&ws=1&s=0&kw=%E6%96%B0%E5%AE%BF
+
+
+
+
+https://transit.yahoo.co.jp/
+search/
+result?flatlon=&fromgid=&from={布田}&tlatlon=&togid=&to={新宿}&viacode=&via={調布}&viacode=&via=&viacode=&via=&y={year}&m={month}&d={day}&hh={hour}&m2={minute2桁目}&m1={minute1桁目}&type=1&ticket=ic&expkind=1&ws=1&s=0&kw={新宿}
