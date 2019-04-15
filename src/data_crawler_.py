@@ -1,5 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
+# ===================================================-
+import urllib
+
+
 
 class TimeResearcher(object):
     """ 
@@ -49,11 +53,17 @@ class TimeResearcher(object):
     def research(self):
         """ 経路を検索する
         """
+        # ===================================================-
+        proxies = {
+        'http':'http://proxy.uec.ac.jp:8080',
+        'https':'http://proxy.uec.ac.jp:8080'
+        }
+        # ===================================================-
         url = self.get_url()        
-        r = requests.get(url)         #requestsを使って、webから取得
-        soup = BeautifulSoup(r.text, 'lxml') #要素を抽出
+        r = requests.get(url, proxies=proxies)         #requestsを使って、webから取得
+        htmlSource = BeautifulSoup(r.text, 'lxml') #要素を抽出
         res_ = []
-        for li in soup.find_all('li',  attrs={"class": "time"}):
+        for li in htmlSource.find_all('li',  attrs={"class": "time"}):
             res_.append(li.text)
         return res_
 
