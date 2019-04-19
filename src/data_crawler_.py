@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-# ===================================================-
 import urllib
 
 
@@ -35,10 +34,15 @@ class TimeResearcher(object):
     def get_url(self):
         """ timeとflagを下に検索する
         """
-        url = "https://transit.yahoo.co.jp/search/result?flatlon=&fromgid=&from=%E5%B8%83%E7%94%B0&tlatlon=&togid=&to=%E6%96%B0%E5%AE%BF&viacode=&via="
+        # url = "https://transit.yahoo.co.jp/search/result?flatlon=&fromgid=&from=%E5%B8%83%E7%94%B0&tlatlon=&togid=&to=%E6%96%B0%E5%AE%BF&viacode=&via="
+        url = "https://transit.yahoo.co.jp/search/result?flatlon=&fromgid=&from=%E8%B6%B3%E6%9F%84&tlatlon=%2C%2C23209&togid=&to=%E6%96%B0%E6%9D%BE%E7%94%B0&viacode=&via="
+
         if self.flag:
-            # url += "&viacode=&via=&viacode=&via="
-            url += "%E8%AA%BF%E5%B8%83&viacode=&via=&viacode=&via="
+            # url += "%E8%AA%BF%E5%B8%83&viacode=&via=&viacode=&via="
+            url += "%E8%9E%A2%E7%94%B0&viacode=&via=&viacode=&via="
+        else:
+            # url += ""
+            url += "%E5%B0%8F%E7%94%B0%E5%8E%9F&viacode=&via="
         url += "&y="+str(self.time["year"])
         url += "&m="+self.make_02d(self.time["month"])
         url += "&d="+self.make_02d(self.time["day"])
@@ -46,21 +50,22 @@ class TimeResearcher(object):
         self.split_minute()
         url += "&m2="+self.m2
         url += "&m1="+self.m1
-        url += "&type=1&ticket=ic&expkind=1&ws=1&s=0&kw=%E6%96%B0%E5%AE%BF"
-        # url = "https://transit.yahoo.co.jp/search/result?flatlon=&fromgid=&from=%E5%B8%83%E7%94%B0&tlatlon=&togid=&to=%E6%96%B0%E5%AE%BF&viacode=&via=&viacode=&via=&viacode=&via=&y="+str(self.time["year"])+"&m="+"&m="+self.make_02d(self.time["month"])+"&d="+self.make_02d(self.time["month"])+"&hh="+str(self.time["hour"])+"&m2="+self.m2+"&m1="+self.m1+"&type=1&ticket=ic&expkind=1&ws=1&s=0&kw=%E6%96%B0%E5%AE%BF"
+        # url += "&type=1&ticket=ic&expkind=1&ws=1&s=0&kw=%E6%96%B0%E5%AE%BF"
+        url += "&type=1&ticket=ic&expkind=1&ws=1&s=0&kw=%E6%96%B0%E6%9D%BE%E7%94%B0" # 目的地
         return url
     
     def research(self):
         """ 経路を検索する
         """
         # ===================================================-
-        proxies = {
-        'http':'http://proxy.uec.ac.jp:8080',
-        'https':'http://proxy.uec.ac.jp:8080'
-        }
+        # proxies = {
+        # 'http':'http://proxy.uec.ac.jp:8080',
+        # 'https':'http://proxy.uec.ac.jp:8080'
+        # }
         # ===================================================-
         url = self.get_url()        
-        r = requests.get(url, proxies=proxies)         #requestsを使って、webから取得
+        # r = requests.get(url, proxies=proxies)         #requestsを使って、webから取得
+        r = requests.get(url)
         htmlSource = BeautifulSoup(r.text, 'lxml') #要素を抽出
         res_ = []
         for li in htmlSource.find_all('li',  attrs={"class": "time"}):

@@ -27,7 +27,8 @@ def main():
         3. それぞれの経路の所要時間を赤線と緑線でplotする
     """ 
     memo = {}
-    names_ = ["Fuda-Shinjuku", "Fuda-Shinjuku-via-Chofu"]
+    # names_ = ["Fuda-Shinjuku", "Fuda-Shinjuku-via-Chofu"]
+    names_ = [name for name in os.listdir("../data/") if name in "Ashigara"]
     for name in names_:
         path_dir = os.path.join("../data", name)
         tmp = []

@@ -4,7 +4,8 @@ import os
 
 def main():
     flags = [True, False]
-    files = ["../data/Fuda-Shinjuku-via-Chofu/Fuda-Shinjuku-via-Chofu", "../data/Fuda-Shinjuku/Fuda-Shinjuku"]
+    # files = ["../data/Fuda-Shinjuku-via-Chofu/Fuda-Shinjuku-via-Chofu", "../data/Fuda-Shinjuku/Fuda-Shinjuku"]
+    files = ["../data/Ashigara-ShinMatsuda-via-Hotaruda/Ashigara-ShinMatsuda-via-Hotaruda", "../data/Ashigara-Shinmatsuda-via-Odawara/Ashigara-Shinmatsuda-via-Odawara"]
 
     for flag, _file in zip(flags, files):
         for hour in range(4, 25):
