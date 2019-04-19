@@ -39,7 +39,7 @@ def main():
             with open(path_csv, "r") as f:
                 reader = csv.reader(f)
                 for minute, line in zip(range(0, 60), reader):
-                    leaving_hour, leaving_minute = line[1][:2], line[1][3:5]# 出発時刻(h)
+                    leaving_hour, leaving_minute = int(line[1][:2]), int(line[1][3:5])# 出発時刻(h)
                     required_time = line[1][-3:-1]
                     # print(name, hour, minute, required_time)
                     if hour == leaving_hour:
@@ -51,8 +51,8 @@ def main():
         memo[name] = tmp
 
     colors_ = ["red", "green"]
-    # labels_ = ["布田--新宿", "布田--調布--新宿"]
-    labels_ = ["足柄-新松田", "足柄-小田原-新松田"]
+    labels_ = ["布田--新宿", "布田--調布--新宿"]
+    # labels_ = ["足柄-新松田", "足柄-小田原-新松田"]
     for name, y in memo.items():
         x = np.arange(60*20)
         plt.plot(x, y, color=colors_[names_.index(name)], label=labels_[names_.index(name)])
@@ -64,8 +64,8 @@ def main():
     plt.xticks(locs, xtick, rotation="30")
     plt.xlabel("時刻")
     plt.ylabel("所要時間(分)")
-    # plt.title("新宿駅までの所要時間")
-    plt.title("新松田までの所要時間")
+    plt.title("新宿駅までの所要時間")
+    # plt.title("新松田までの所要時間")
     plt.legend(loc="best")
     plt.show()
                     
