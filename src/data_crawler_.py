@@ -35,7 +35,9 @@ class TimeResearcher(object):
         """ timeとflagを下に検索する
         """
         # url = "https://transit.yahoo.co.jp/search/result?flatlon=&fromgid=&from=%E5%B8%83%E7%94%B0&tlatlon=&togid=&to=%E6%96%B0%E5%AE%BF&viacode=&via="
-        url = "https://transit.yahoo.co.jp/search/result?flatlon=&fromgid=&from=%E8%B6%B3%E6%9F%84&tlatlon=%2C%2C23209&togid=&to=%E6%96%B0%E6%9D%BE%E7%94%B0&viacode=&via="
+        url = "https://transit.yahoo.co.jp/search/result?flatlon=&fromgid=&from=%E8%B6%B3%E6%9F%84&tlatlon=&togid=&to=%E6%96%B0%E5%AE%BF&viacode=&via="
+        #url = "https://transit.yahoo.co.jp/search/result?flatlon=&fromgid=&from=%E8%B6%B3%E6%9F%84&tlatlon=%2C%2C23209&togid=&to=%E6%96%B0%E6%9D%BE%E7%94%B0&viacode=&via="
+        
 
         if self.flag:
             # url += "%E8%AA%BF%E5%B8%83&viacode=&via=&viacode=&via="
@@ -50,8 +52,8 @@ class TimeResearcher(object):
         self.split_minute()
         url += "&m2="+self.m2
         url += "&m1="+self.m1
-        # url += "&type=1&ticket=ic&expkind=1&ws=1&s=0&kw=%E6%96%B0%E5%AE%BF"
-        url += "&type=1&ticket=ic&expkind=1&ws=1&s=0&kw=%E6%96%B0%E6%9D%BE%E7%94%B0" # 目的地
+        url += "&type=1&ticket=ic&expkind=1&ws=1&s=0&kw=%E6%96%B0%E5%AE%BF"
+        # url += "&type=1&ticket=ic&expkind=1&ws=1&s=0&kw=%E6%96%B0%E6%9D%BE%E7%94%B0" # 目的地
         return url
     
     def research(self):
